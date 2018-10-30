@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        {% block stylesheets %}{% endblock %}
+    </head>
+
+    <body>
+        {% include 'components/header.html.twig' %}
+        
+        <!-- ***** SLIDER-START ****** -->
+        <div class="slider">
+        <div class="carousel" data-flickity='{ "autoPlay": true }'>
+          {% for slide in sliders %}
+          <div class="carousel-cell">
+            <img class="slider-img" src="{{slide.image}}" alt="">
+            <div class="slider-game">
+              <div class="slider-game__name">{{slide.name}}</div>
+              <div class="slider-game__price">{{slide.price}} TL</div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <!-- ***** SLIDER-END ****** -->
+      
+<div class="container">
+  <div class="main">
+  
+    {% for game in games %}
+
+    <div class="product">
+      <a href="/detay/{{ game.id}}">
+      <div class="product__top">
+            <img class="product__top--img" src="{{game.image}}" alt="">
+      </div>
+      </a>
+      <div class="product__bottom">
+        <div class="product__category">
+          PS4 Oyunları
+        </div>
+        <div class="product__title">
+          <p>{{game.name}}</p>
+        </div>
+        <div class="product__price">
+          <p>{{game.price}}.00 ₺</p>
+        </div>
+      </div>
+    </div>
+      {% endfor %}
+  
+
+    </div>
+  </div>
+</div>
+        {% include 'components/footer.html.twig' %}
+
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  {% block stylesheets %}{% endblock %}
+
+</head>
+
+<body>
+  {% include 'components/header.html.twig' %}
+
+  <div class="container">
+    <div class="game-main">
+      <div class="game-title">
+        <h3>{{game.name}}</h3>
+      </div>
+      <div class="game-bottom">
+        <div class="game-left">
+          <img src="{{game.image}}" alt="">
+        </div>
+        <div class="game-right">
+          <div class="seller">
+            <div class="seller-name">
+              saspegas
+            </div>
+            <div class="seller-rate">
+              99% | 6950 Satış
+            </div>
+          </div>
+          <div class="price">
+            {{game.price}}.00 ₺
+          </div>
+          <div class="buy">
+            <a class="buy__btn" href="#">Satın Al</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="other-seller">
+      <h2 class="other-seller-title">Diğer Teklifler : 20</h2>
+      <div class="bottom-seller">
+        <div class="seller-left">
+          <div class="other-seller-name">
+            Nikishop
+          </div>
+          <div class="other-seller-rate">
+            95% | 652 Satış
+          </div>
+        </div>
+        <div class="seller-right">
+          <div class="bottom-price">
+            69.50 ₺
+          </div>
+          <div class="other-buy">
+            <a class="other-buy-btn" href="#">
+              <i class="fas fa-shopping-cart"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-seller">
+          <div class="seller-left">
+            <div class="other-seller-name">
+              Nikishop
+            </div>
+            <div class="other-seller-rate">
+              95% | 652 Satış
+            </div>
+          </div>
+          <div class="seller-right">
+            <div class="bottom-price">
+              69.50 ₺
+            </div>
+            <div class="other-buy">
+              <a class="other-buy-btn" href="#">
+                <i class="fas fa-shopping-cart"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="bottom-seller">
+            <div class="seller-left">
+              <div class="other-seller-name">
+                Nikishop
+              </div>
+              <div class="other-seller-rate">
+                95% | 652 Satış
+              </div>
+            </div>
+            <div class="seller-right">
+              <div class="bottom-price">
+                69.50 ₺
+              </div>
+              <div class="other-buy">
+                <a class="other-buy-btn" href="#">
+                  <i class="fas fa-shopping-cart"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="bottom-seller">
+              <div class="seller-left">
+                <div class="other-seller-name">
+                  Nikishop
+                </div>
+                <div class="other-seller-rate">
+                  95% | 652 Satış
+                </div>
+              </div>
+              <div class="seller-right">
+                <div class="bottom-price">
+                  69.50 ₺
+                </div>
+                <div class="other-buy">
+                  <a class="other-buy-btn" href="#">
+                    <i class="fas fa-shopping-cart"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+    </div>
+  </div>
+
+  {% include 'components/footer.html.twig' %}
+
+  {% block body %}{% endblock %}
+  {% block javascripts %}{% endblock %}
+</body>
+
+</html>

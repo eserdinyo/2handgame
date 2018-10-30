@@ -1,0 +1,54 @@
+
+{% extends 'admin_base.html.twig' %}
+
+
+{% block title %}Üye Listesi{% endblock %}
+
+{% block content %}
+    <!-- MAIN -->
+		<div class="main">
+			<!-- MAIN CONTENT -->
+			<div class="main-content">
+				<div class="container-fluid">
+					<h3 class="page-title">Uyeler</h3>
+				
+					<!-- BASIC TABLE -->
+							<div class="panel">
+							
+								<div class="panel-body">
+									<table class="table">
+										<thead>
+											<tr>
+												<th>ID</th>
+												<th>Name Surname</th>
+												<th>Email</th>
+												<th>Status</th>
+												<th>Type</th>
+												<th>Edit</th>
+												<th>Delete</th>
+											</tr>
+										</thead>
+										<tbody>
+                    {% for user in users %}
+											<tr>
+												<td>{{user.id}}</td>
+												<td>{{user.name}}</td>
+												<td>{{user.email}}</td>
+												<td>Active</td>
+												<td>User</td>
+												<td><i class="btn btn-primary fa fa-edit"></i> </td>
+												<td><i class="btn btn-danger fa fa-trash"></i></i></td>
+											</tr>
+
+                      {% endfor %}
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<!-- END BASIC TABLE -->
+					
+				</div>
+			</div>
+		</div>
+		<!-- END MAIN -->
+{% endblock %}

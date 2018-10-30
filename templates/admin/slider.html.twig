@@ -1,0 +1,57 @@
+{% extends 'admin_base.html.twig' %}
+
+
+{% block title %}Oyunlar{% endblock %}
+{% block content %}
+<!-- MAIN -->
+<div class="main">
+	<!-- MAIN CONTENT -->
+	<div class="main-content">
+		<div class="container-fluid">
+			<h3 class="page-title">Slider</h3>
+			<a href="{{ url('admin') }}/oyun-ekle" class="btn btn-success mb-10" style="margin-bottom:20px"><i class="fa fa-plus"
+				 style="margin-right:10px"></i>Ekle</a>
+
+			<!-- BASIC TABLE -->
+			<div class="panel">
+
+				<div class="panel-body">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>Name</th>
+								<th>Price</th>
+								<th>Status</th>
+								<th>Edit</th>
+								<th>Delete</th>
+							</tr>
+						</thead>
+						<tbody>
+
+
+							{% for slide in sliders %}
+							<tr>
+								<td>{{slide.id}}</td>
+								<td>{{slide.name}}</td>
+								<td>{{slide.price}}</td>
+								<td>Active</td>
+								<td><i class="btn btn-primary fa fa-edit"></i></td>
+								<td><i class="btn btn-danger fa fa-trash"></i> </td>
+							</tr>
+
+							{% endfor %}
+
+
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<!-- END BASIC TABLE -->
+
+		</div>
+	</div>
+</div>
+<!-- END MAIN -->
+{% endblock %}

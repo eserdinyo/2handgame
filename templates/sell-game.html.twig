@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  {% block stylesheets %}{% endblock %}
+
+</head>
+
+<body>
+  {% include 'components/header.html.twig' %}
+
+  <div class="sell-game">
+    <h2  class="sell-game__title">Oyun Sat</h2>
+    <form class="sell-game-form" action="/signup" method="post">
+      <div class="form-item">
+        <label>Oyun</label>
+        <select>
+          <option>Shadow of the Tomb Raider</option>
+          <option>Marvel’s Spider-Man</option>
+          <option>NBA 2K19</option>
+          <option>Assassin’s Creed Odyssey</option>
+          <option>Red Dead Redemption 2</option>
+        </select>
+      </div>
+      <div class="form-item">
+          <label>Kategori</label>
+          <select>
+            <option>PS4</option>
+            <option>PS3</option>
+            <option>XBOX ONE</option>
+            <option>XBOX 360</option>
+          </select>
+        </div>
+      <div class="form-item">
+          <label>Fiyatı</label>
+
+        <input type="number" name="price" placeholder="Oyun Fiyatı">
+      </div>
+      <button class="sell-game__btn" type="submit">Kaydet</button>
+    </form>
+  </div>
+
+
+  {% include 'components/footer.html.twig' %}
+
+  {% block body %}{% endblock %}
+  {% block javascripts %}{% endblock %}
+</body>
+
+</html>
