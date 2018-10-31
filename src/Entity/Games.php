@@ -28,6 +28,10 @@ class Games
      * @ORM\Column(type="string", length=255)
      */
     private $image;
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $category;
 
     public function getId(): ?int
     {
@@ -58,9 +62,22 @@ class Games
     {
         return $this->price;
     }
+    
     public function setPrice(float $price): self
     {
         $this->price = $price;
+
+        return $this;
+    }
+
+    public function getCategory(): ?string
+    {
+        return $this->category;
+    }
+
+    public function setCategory(string $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }
