@@ -1,0 +1,44 @@
+{% extends 'admin_base.html.twig' %}
+
+
+{% block title %}Oyunlar{% endblock %}
+{% block content %}
+<!-- MAIN -->
+<div class="main">
+  <!-- MAIN CONTENT -->
+  <div class="main-content">
+    <div class="container-fluid">
+      <h3 class="page-title">Oyun Düzenle</h3>
+
+      <div class="panel col-md-6">
+
+        <div class="panel-body">
+          <form method="post">
+            <input type="text" name="games[name]" value="{{game.name}}" class="form-control" placeholder="Oyun Adı">
+            <br>
+            <input type="number" name="games[price]" value="{{game.price}}" class="form-control" placeholder="Oyun Fiyatı">
+            <br>
+            <input type="text" name="games[image]" value="{{game.image}}" class="form-control" placeholder="Resim Yolu">
+
+            <br>
+            <label for="">Kategori</label>
+            <select name="games[category]" class="form-control">
+              <option value="{{game.category}}">{{game.category}}</option>
+              <option value="PS4">PS4</option>
+              <option value="PS3">PS3</option>
+              <option value="XBOX ONE">XBOX ONE</option>
+              <option value="XBOX 360">XBOX 360</option>
+            </select>
+
+            <button type="submit" class="btn btn-info" style="margin-top: 20px">Kaydet</button>
+          </form>
+        </div>
+
+      </div>
+      <!-- END BASIC TABLE -->
+
+    </div>
+  </div>
+</div>
+<!-- END MAIN -->
+{% endblock %}

@@ -36,8 +36,8 @@
 								<td>{{game.price}}</td>
 								<td>Active</td>
 								<td>PS4</td>
-								<td><i class="btn btn-primary fa fa-edit"></i></td>
-								<td><i class="btn btn-danger fa fa-trash"></i> </td>
+								<td><a href="{{ path("edit-game", {'id': game.id} ) }}"><i class="btn btn-primary fa fa-edit"></i></a></td>
+								<td><a href="{{ path("delete-game", {'id': game.id} ) }}" onclick="return confirm('Are you sure!');" ><i class="btn btn-danger fa fa-trash"></i></a> </td>
 							</tr>
 
 							{% endfor %}

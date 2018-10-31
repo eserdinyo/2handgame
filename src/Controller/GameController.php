@@ -42,5 +42,36 @@ class GameController extends Controller
         return $this->render('admin/game/oyun-ekle.html.twig', [
             'form' => $form->createView(),
         ]);
+    }  
+
+    /**
+     * @Route("/admin/oyunlar/edit/{id}", name="edit-game", methods="GET|POST")
+     */
+    public function editGame(Request $request, Games $games): Response
+    {    $form = $this->createForm(GamesType::class, $games);
+         $form->handleRequest($request);
+        
+
+         //Save to DATABASE
+        if($form->isSubmitted() && $form->isValid()) {
+            $this ->getDoctrine() ->getManager()->flush();
+
+            return $this->redirectToRoute('oyunlar');
+        }
+
+        return $this->render('admin/game/edit-game.html.twig', [
+            'game'=>$games,
+        ]);
+    }
+
+    /**
+     * @Route("/admin/oyunlar/delete/{id}", name="delete-game", methods="GET|POST")
+     */
+    public function deleteGame(Games $games)
+    {  
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($games);
+        $em->flush();
+        return $this->redirectToRoute('oyunlar');
     }
 }
