@@ -22,13 +22,28 @@
   <link rel="icon" type="image/png" sizes="96x96" href="../../../admin/assets/img/favicon.png">
 
   <style>
-  .brand {
-    padding: 16px 40px !important;
-  }
-    .logo {
-      width: 50%  !important;
+    .brand {
+      padding: 16px 40px !important;
     }
-  
+
+    .logo {
+      width: 50% !important;
+    }
+
+    .aktif {
+      display: block;
+      width: 15px;
+      height: 15px;
+      border-radius: 100px;
+      background: #27ae60;
+    }
+    .pasif {
+      display: block;
+      width: 15px;
+      height: 15px;
+      border-radius: 100px;
+      background: #c0392b;
+    }
   </style>
 </head>
 
@@ -41,16 +56,16 @@
         <a href="/admin"><img src="../../../images/admin-logo.png" alt="Klorofil Logo" class="img-responsive logo"></a>
       </div>
       <div class="container-fluid">
-      
-       
-      
+
+
+
         <div id="navbar-menu">
           <ul class="nav navbar-nav navbar-right">
-           
-            
+
+
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="../../../admin/assets/img/user.png" class="img-circle"
-                  alt="Avatar"> <span>Samuel</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="../../../admin/assets/img/user.png"
+                  class="img-circle" alt="Avatar"> <span>Samuel</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
               <ul class="dropdown-menu">
                 <li><a href="#"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
               </ul>
@@ -70,8 +85,10 @@
         <nav>
           <ul class="nav">
             <li><a href="/admin" class="active"><i class="lnr lnr-home"></i> <span>Anasayfa</span></a></li>
-            <li><a href="{{ url('admin') }}/oyunlar" class=""><i class="fa fa-gamepad"></i> <span>Oyunlar</span> <span class="label label-info" style="margin-left:80px">6</span></a>  </li>
-            <li><a href="{{ url('admin') }}/sales" class=""><i class="fa fa-gamepad"></i> <span>Satıştaki Oyunlar</span> <span class="label label-info" style="margin-left:10px">20</span></a>  </li>
+            <li><a href="{{ url('admin') }}/oyunlar" class=""><i class="fa fa-gamepad"></i> <span>Oyunlar</span> <span
+                  class="label label-info" style="margin-left:80px">6</span></a> </li>
+            <li><a href="{{ url('admin') }}/sales" class=""><i class="fa fa-gamepad"></i> <span>Satıştaki Oyunlar</span>
+                <span class="label label-info" style="margin-left:10px">20</span></a> </li>
             <li><a href="{{ url('admin') }}/uyeler" class=""><i class="lnr lnr-user"></i> <span>Üyeler</span></a></li>
             <li><a href="{{ url('admin') }}/slider" class=""><i class="fa fa-random"></i> <span>Slider</span></a></li>
             <li><a href="panels.html" class=""><i class="fa fa-shopping-cart"></i> <span>Siparişler</span></a></li>

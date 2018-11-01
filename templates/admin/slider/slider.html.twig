@@ -35,7 +35,17 @@
 								<td>{{slide.id}}</td>
 								<td>{{slide.name}}</td>
 								<td>{{slide.price}}</td>
-								<td>Active</td>
+								{% if slide.status == "aktif" %}
+									<td>
+										<a class="aktif" href="#"></a>
+									</td>
+								{% elseif slide.status == "pasif" %}
+									<td>
+										<a class="pasif" href="#"></a>
+									</td>
+								{% else %}
+									<td>Null</td>
+								{% endif %}
 								<td><i class="btn btn-primary fa fa-edit"></i></td>
 								<td><i class="btn btn-danger fa fa-trash"></i> </td>
 							</tr>

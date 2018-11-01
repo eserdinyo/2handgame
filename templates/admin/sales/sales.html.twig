@@ -34,7 +34,17 @@
 								<td>{{sale.price}}</td>
 								<td>{{sale.username}}</td>
 								<td>{{sale.description}}</td>
-								<td>Active</td>
+								{% if sale.status == "aktif" %}
+									<td>
+										<a class="aktif" href="#"></a>
+									</td>
+								{% elseif sale.status == "pasif" %}
+									<td>
+										<a class="pasif" href="#"></a>
+									</td>
+								{% else %}
+									<td>Null</td>
+								{% endif %}
 								<td><a href="{{ path("delete-game", {'id': sale.id} ) }}" onclick="return confirm('Are you sure!');" ><i class="btn btn-danger fa fa-trash"></i></a> </td>
 							</tr>
 
