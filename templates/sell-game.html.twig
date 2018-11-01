@@ -11,34 +11,40 @@
   {% include 'components/header.html.twig' %}
 
   <div class="sell-game">
-    <h2  class="sell-game__title">Oyun Sat</h2>
-    <form class="sell-game-form" action="/signup" method="post">
+ 
+    <h2 class="sell-game__title">Oyun Sat</h2>
+    <form class="sell-game-form" method="post">
+   
       <div class="form-item">
         <label>Oyun</label>
-        <select>
-          <option>Shadow of the Tomb Raider</option>
-          <option>Marvel’s Spider-Man</option>
-          <option>NBA 2K19</option>
-          <option>Assassin’s Creed Odyssey</option>
-          <option>Red Dead Redemption 2</option>
+        <select name="sales[oyunId]">
+							{% for game in games %}
+              <option value="{{game.id}}">{{game.name}}</option>
+							{% endfor %}
+        </select>
+        <input type="hidden" name="sales[username]" value="eserdinyo">
+      </div>
+      <div class="form-item">
+        <label>Kategori</label>
+        <select name="sales[category]">
+          <option value="PS4">PS4</option>
+          <option value="PS4">PS3</option>
+          <option value="PS4">XBOX ONE</option>
+          <option value="PS4">XBOX 360</option>
         </select>
       </div>
       <div class="form-item">
-          <label>Kategori</label>
-          <select>
-            <option>PS4</option>
-            <option>PS3</option>
-            <option>XBOX ONE</option>
-            <option>XBOX 360</option>
-          </select>
-        </div>
+        <label>Açıklama</label>
+        <textarea name="sales[description]" name="" id="" cols="30" rows="5"></textarea>
+      </div>
       <div class="form-item">
-          <label>Fiyatı</label>
-
-        <input type="number" name="price" placeholder="Oyun Fiyatı">
+        <label>Fiyatı</label>
+        <input name="sales[price]" type="number" name="price" placeholder="Oyun Fiyatı">
       </div>
       <button class="sell-game__btn" type="submit">Kaydet</button>
     </form>
+
+    
   </div>
 
 

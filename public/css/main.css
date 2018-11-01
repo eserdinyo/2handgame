@@ -350,22 +350,20 @@ a {
 /* ******** */
 
 .sell-game {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 20px 40px;
+  margin: 20px auto 0 auto;
+  padding: 10px 40px;
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), url("../images/sell-game.jpg");
   background-size: cover;
   width: 50%;
-  height: 50vh;
   border-radius: 5px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.342);
 }
 
 .sell-game-form {
-  width: 250px;
+  width: 300px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .sell-game__title {
@@ -381,7 +379,7 @@ a {
 }
 
 .form-item select,
-input {
+input, textarea {
   padding: 5px 10px;
   border: 1px solid #c23516d7;
   border-radius: 3px;
@@ -400,4 +398,12 @@ input {
   background: #c23516d7;
   color: #fff;
   border: none;
+  margin-left: auto;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: .1s;
+}
+
+.sell-game__btn:hover {
+  background: #273c75c5;
 }

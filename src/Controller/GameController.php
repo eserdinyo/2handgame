@@ -3,7 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Games;
+use App\Entity\Sales;
 use App\Form\GamesType;
+use App\Form\SalesType;
+
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,6 +22,17 @@ class GameController extends Controller
         $games = $this -> getDoctrine()->getRepository(Games::class)->findAll();  
         return $this->render('admin/game/games.html.twig', [
             'games' => $games,
+        ]);
+    }
+
+    /**
+     * @Route("/admin/sales", name="sales")
+     */
+    public function sales()
+    {   
+        $sales = $this -> getDoctrine()->getRepository(Sales::class)->findAll();  
+        return $this->render('admin/sales/sales.html.twig', [
+            'sales' => $sales,
         ]);
     }
 
@@ -74,4 +88,28 @@ class GameController extends Controller
         $em->flush();
         return $this->redirectToRoute('oyunlar');
     }
+
+    /**
+     * @Route("/sell-game", name="sell-game", methods="GET|POST")
+     */
+    public function addSelingGame(Request $request): Response
+    {   
+       $sale = new Sales();
+       $form = $this->createForm(SalesType::class, $sale);
+       $form->handleRequest($request);
+       $games = $this -> getDoctrine()->getRepository(Games::class)->findAll();  
+
+        //Save to DATABASE
+        if($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($sale);
+            $em->flush();
+            return $this->redirectToRoute('home');
+        }
+
+        return $this->render('sell-game.html.twig', [
+            'form' => $form->createView(),
+            'games' => $games,
+        ]);
+    } 
 }
