@@ -38,87 +38,40 @@
       </div>
     </div>
     <div class="other-seller">
-      <h2 class="other-seller-title">Diğer Teklifler : 20</h2>
-      <div class="bottom-seller">
-        <div class="seller-left">
-          <div class="other-seller-name">
-            Nikishop
-          </div>
-          <div class="other-seller-rate">
-            95% | 652 Satış
-          </div>
-        </div>
-        <div class="seller-right">
-          <div class="bottom-price">
-            69.50 ₺
-          </div>
-          <div class="other-buy">
-            <a class="other-buy-btn" href="#">
-              <i class="fas fa-shopping-cart"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="bottom-seller">
-          <div class="seller-left">
-            <div class="other-seller-name">
-              Nikishop
-            </div>
-            <div class="other-seller-rate">
-              95% | 652 Satış
-            </div>
-          </div>
-          <div class="seller-right">
-            <div class="bottom-price">
-              69.50 ₺
-            </div>
-            <div class="other-buy">
-              <a class="other-buy-btn" href="#">
-                <i class="fas fa-shopping-cart"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="bottom-seller">
-            <div class="seller-left">
-              <div class="other-seller-name">
-                Nikishop
-              </div>
-              <div class="other-seller-rate">
-                95% | 652 Satış
-              </div>
-            </div>
-            <div class="seller-right">
-              <div class="bottom-price">
-                69.50 ₺
-              </div>
-              <div class="other-buy">
-                <a class="other-buy-btn" href="#">
-                  <i class="fas fa-shopping-cart"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="bottom-seller">
-              <div class="seller-left">
-                <div class="other-seller-name">
-                  Nikishop
+      <h2 class="other-seller-title">Diğer Teklifler : {{sales|length}}</h2>
+      
+							{% for sale in sales %}
+
+
+              <div class="bottom-seller">
+                <div class="seller-left">
+                  <div class="other-seller-name">
+                   {{ sale.username }}
+                  </div>
+                  <div class="other-seller-rate">
+                    95% | 652 Satış
+                  </div>
                 </div>
-                <div class="other-seller-rate">
-                  95% | 652 Satış
+                <div class="seller-center">
+                  <p class="other-seller-desc">
+                    {{sale.description}}
+                  </p>
+                </div>
+                <div class="seller-right">
+                  <div class="bottom-price">
+                   {{ sale.price }} ₺
+                  </div>
+                  <div class="other-buy">
+                    <a class="other-buy-btn" href="#">
+                      <i class="fas fa-shopping-cart"></i>
+                    </a>
+                  </div>
                 </div>
               </div>
-              <div class="seller-right">
-                <div class="bottom-price">
-                  69.50 ₺
-                </div>
-                <div class="other-buy">
-                  <a class="other-buy-btn" href="#">
-                    <i class="fas fa-shopping-cart"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
+
+							{% endfor %}
+
+
     </div>
   </div>
 

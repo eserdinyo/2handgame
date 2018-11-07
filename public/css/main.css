@@ -216,6 +216,11 @@ a {
   font-weight: 500;
 }
 
+.other-seller-desc {
+  font-size: 14px;
+  color: rgb(114, 114, 114);
+}
+
 .bottom-seller {
   display: flex;
   justify-content: space-between;
