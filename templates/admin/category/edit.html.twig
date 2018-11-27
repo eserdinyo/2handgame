@@ -13,9 +13,19 @@
 
         <div class="panel-body">
           <form method="post">
-            <label >Parent ID</label>
+          <label for="">Üst Kategori</label>
+            <select name="category[parentId]" class="form-control">
 
-            <input type="number" name="category[parentId]" value="{{category.parentId}}" class="form-control" placeholder="Parent ID">
+            {% if category.parentId != 0 %}
+              <option value="{{ category.parentID }}">{{ catName.name }}</option>
+            {% else %}
+              <option value="0">Ana Kategori</option>
+            {% endif %}
+
+            {% for cat in catList %}
+              <option value="{{ cat.id }}">{{ cat.name }}</option>
+            {% endfor %}
+            </select>
             <br>
             <label >Kategori İsmi</label>
 

@@ -26,8 +26,10 @@ class CategoryController extends Controller
     /**
      * @Route("/new", name="category_new", methods="GET|POST")
      */
-    public function new(Request $request): Response
+    public function new(Request $request,CategoryRepository $catRepo): Response
     {
+        $catList = $catRepo->findBy(['parentId' => 0]);
+
         $category = new Category();
         $form = $this->createForm(CategoryType::class, $category);
         $form->handleRequest($request);
@@ -42,6 +44,7 @@ class CategoryController extends Controller
 
         return $this->render('admin/category/new.html.twig', [
             'category' => $category,
+            'catList' => $catList,
             'form' => $form->createView(),
         ]);
     }
@@ -55,10 +58,13 @@ class CategoryController extends Controller
     }
 
     /**
-     * @Route("/{id}/edit", name="category_edit", methods="GET|POST")
+     * @Route("/{id}/{pid}/edit", name="category_edit", methods="GET|POST")
      */
-    public function edit(Request $request, Category $category): Response
-    {
+    public function edit(Request $request, $id, $pid, CategoryRepository $catRepo, Category $category): Response
+    {   
+        $catList = $catRepo->findBy(['parentId' => 0]);
+        $catName = $catRepo->findOneBy(['id'=> $pid]);
+
         $form = $this->createForm(CategoryType::class, $category);
         $form->handleRequest($request);
 
@@ -70,6 +76,8 @@ class CategoryController extends Controller
 
         return $this->render('admin/category/edit.html.twig', [
             'category' => $category,
+            'catList' => $catList,
+            'catName' => $catName,
             'form' => $form->createView(),
         ]);
     }
@@ -87,4 +95,6 @@ class CategoryController extends Controller
 
         return $this->redirectToRoute('category_index');
     }
+
+      
 }

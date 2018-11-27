@@ -13,7 +13,16 @@
       <div class="panel col-md-6">
         <div class="panel-body">
           <form method="post">
-            <input type="number" name="category[parentId]" class="form-control" placeholder="Parent ID">
+             <label for="">Üst Kategori</label>
+            <select name="category[parentId]" class="form-control">
+              <option value="0">Ana Kategori</option>
+
+              {% for cat in catList %}
+              
+              <option value="{{ cat.id }}">{{ cat.name }}</option>
+
+              {% endfor %}
+            </select>
             <br>
             <input type="text" name="category[name]" class="form-control" placeholder="Kategori Adı" autocomplete="off">
             <br>

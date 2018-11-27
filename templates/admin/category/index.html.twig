@@ -39,7 +39,7 @@
                 <td>{{ category.status }}</td>
                 <td>{{ category.keywords }}</td>
                 <td>{{ category.description }}</td>
-                <td><a href="{{ path('category_edit', {'id': category.id}) }}"><i class="btn btn-primary fa fa-edit"></i></a></td>
+                <td><a href="{{ path('category_edit', {'id': category.id , 'pid':category.parentId} )}}"><i class="btn btn-primary fa fa-edit"></i></a></td>
                <td><a href="{{ path("category_delete", {'id': category.id} ) }}" onclick="return confirm('Are you sure!');" ><i class="btn btn-danger fa fa-trash"></i></a> </td>
             </tr>
         {% else %}
