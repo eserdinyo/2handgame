@@ -12,7 +12,6 @@
 body {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
-  background: #dfe6e97c;
 }
 
 .header {
@@ -117,7 +116,7 @@ a {
 }
 
 .product__top--img {
-  width: 60%;
+  width: 70%;
 }
 
 .product__bottom {

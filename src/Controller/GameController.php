@@ -97,6 +97,7 @@ class GameController extends Controller
        $sale = new Sales();
        $form = $this->createForm(SalesType::class, $sale);
        $form->handleRequest($request);
+       
        $games = $this -> getDoctrine()->getRepository(Games::class)->findAll();  
 
         //Save to DATABASE
