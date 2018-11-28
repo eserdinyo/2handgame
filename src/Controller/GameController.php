@@ -79,6 +79,45 @@ class GameController extends Controller
     }
 
     /**
+     * @Route("/admin/oyunlar/iedit/{id}", name="image-edit", methods="GET|POST")
+     */
+    public function iedit(Request $request, $id, Games $games): Response
+    {
+         $form = $this->createForm(GamesType::class, $games);
+         $form->handleRequest($request);
+
+         $file = $request->files->get('imagename');
+         $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
+         
+         try {
+            $file->move(
+                $this->getParameter('images_directory'),
+                $file
+            );
+        } catch (FileException $e) {
+            // ... handle exception if something happens during file upload
+        }
+
+        $games->setImage($file);
+      
+       
+
+
+        return $this->render('admin/game/image-edit.html.twig', [
+            'game'=>$games,
+            'id'=>$id,
+        ]);
+    }
+
+    /**
+     * @return string
+     */
+    private function generateUniqueFileName()
+    {
+        return md5(uniqid());
+    }
+
+    /**
      * @Route("/admin/oyunlar/delete/{id}", name="delete-game", methods="GET|POST")
      */
     public function deleteGame(Games $games)
@@ -112,5 +151,5 @@ class GameController extends Controller
             'form' => $form->createView(),
             'games' => $games,
         ]);
-    } 
+    }
 }
