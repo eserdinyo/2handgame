@@ -29,25 +29,27 @@
   
     {% for game in games %}
 
-    <div class="product">
-      <a href="/detay/{{ game.id}}">
-      <div class="product__top">
-            <img class="product__top--img" src="{{game.image}}" alt="">
+      {% if game.status == "true" %}
+      <div class="product">
+        <a href="/detay/{{ game.id}}">
+        <div class="product__top">
+              <img class="product__top--img" src="{{ asset('images') }}/{{game.image}}" alt="">
+        </div>
+        </a>
+        <div class="product__bottom">
+          <div class="product__category">
+            <p>{{game.category}}</p>
+          </div>
+          <div class="product__title">
+            <p>{{game.name}}</p>
+          </div>
+          <div class="product__price">
+            <p>{{game.price}}.00 ₺</p>
+          </div>
+        </div>
       </div>
-      </a>
-      <div class="product__bottom">
-        <div class="product__category">
-          <p>{{game.category}}</p>
-        </div>
-        <div class="product__title">
-          <p>{{game.name}}</p>
-        </div>
-        <div class="product__price">
-          <p>{{game.price}}.00 ₺</p>
-        </div>
-      </div>
-    </div>
-      {% endfor %}
+      {% endif %}
+    {% endfor %}
   
 
     </div>

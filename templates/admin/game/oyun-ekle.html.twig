@@ -12,12 +12,16 @@
 
       <div class="panel col-md-6">
         <div class="panel-body">
-          <form method="post">
+          <form method="post" enctype="multipart/form-data">
+            <label for="">Oyun Adı</label>
             <input type="text" name="games[name]" class="form-control" placeholder="Oyun Adı">
             <br>
+            <label for="">Oyun Fiyatı</label>
             <input type="number" name="games[price]" class="form-control" placeholder="Oyun Fiyatı">
+            <input type="hidden" name="games[status]"  value="false">
             <br>
-            <input type="text" name="games[image]" class="form-control" placeholder="Resim Yolu">
+            <label for="">Oyun Resim</label>
+            <input type="file" name="imagename"  class="form-control">
 
             <br>
             <label for="">Kategori</label>

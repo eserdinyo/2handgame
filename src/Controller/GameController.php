@@ -45,8 +45,18 @@ class GameController extends Controller
        $form = $this->createForm(GamesType::class, $game);
        $form->handleRequest($request);
 
+       
+
+
         //Save to DATABASE
         if($form->isSubmitted() && $form->isValid()) {
+          
+            $file = $request->files->get('imagename');
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+         
+            $file->move($this->getParameter('images_directory'), $fileName);
+            $game->setImage($fileName); 
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($game);
             $em->flush();
@@ -79,43 +89,25 @@ class GameController extends Controller
     }
 
     /**
-     * @Route("/admin/oyunlar/iedit/{id}", name="image-edit", methods="GET|POST")
+     * @Route("/admin/oyunlar/edit/{id}/{status}", name="update-status", methods="GET|POST")
      */
-    public function iedit(Request $request, $id, Games $games): Response
-    {
-         $form = $this->createForm(GamesType::class, $games);
-         $form->handleRequest($request);
-
-         $file = $request->files->get('imagename');
-         $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
-         
-         try {
-            $file->move(
-                $this->getParameter('images_directory'),
-                $file
-            );
-        } catch (FileException $e) {
-            // ... handle exception if something happens during file upload
+    public function updateStatus(Request $request, $id, $status, Games $games): Response
+    {   
+        
+        $em = $this->getDoctrine()->getManager();
+        $game = $em->getRepository(Games::class)->find($id);
+        
+        if($status == "true") {
+            $game->setStatus('true');
+            $em->flush();
+        }else {
+            $game->setStatus('false');
+            $em->flush();
         }
 
-        $games->setImage($file);
-      
-       
-
-
-        return $this->render('admin/game/image-edit.html.twig', [
-            'game'=>$games,
-            'id'=>$id,
-        ]);
+        return $this->redirectToRoute('oyunlar');
     }
 
-    /**
-     * @return string
-     */
-    private function generateUniqueFileName()
-    {
-        return md5(uniqid());
-    }
 
     /**
      * @Route("/admin/oyunlar/delete/{id}", name="delete-game", methods="GET|POST")

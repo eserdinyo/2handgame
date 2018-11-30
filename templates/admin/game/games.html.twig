@@ -35,22 +35,20 @@
 								<td>{{game.id}}</td>
 								<td>{{game.name}}</td>
 								<td>
-										<a href="javascript:openWin('{{ path("image-edit", {'id': game.id} ) }}','','toolbar=no,location=no, directories=0,status=no, top=100, left=200, menuBar=no, resizable=no, width=500, height=410');">
 										{% if game.image == null %}
-											<i class="btn btn-info fa fa-image"></i>
+											<i fontSize="50" class="fa fa-image"></i>
 										{% else %}
 										<img src="{{ asset('images') }}/{{game.image}}" alt="" height="40">
 										{% endif %}
-										</a>
 								</td>
 								<td>{{game.price}}</td>
-								{% if game.status == "aktif" %}
+								{% if game.status == "true" %}
 									<td>
-										<a class="aktif" href="#"></a>
+										<a href="{{ path("update-status", {'id': game.id, 'status':'false'} ) }}" class="aktif" href="#"></a>
 									</td>
-								{% elseif game.status == "pasif" %}
+								{% elseif game.status == "false" %}
 									<td>
-										<a class="pasif" href="#"></a>
+										<a href="{{ path("update-status", {'id': game.id, 'status':'true'} ) }}" class="pasif" href="#"></a>
 									</td>
 								{% else %}
 									<td>Null</td>
