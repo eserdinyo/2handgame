@@ -22,4 +22,5 @@ class FrontController extends Controller
             'sliders' => $sliders,
         ]);
     }
+
 }

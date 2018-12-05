@@ -4,7 +4,32 @@
 <head>
   <meta charset="UTF-8">
   {% block stylesheets %}{% endblock %}
+  <style>
+          
+/* SLİDER */
 
+.slider {
+  width: 500px;
+  height: 300px;
+}
+
+.carousel {
+  height: 100%;
+}
+
+.carousel-cell {
+  width: 500px; /* full width */
+  margin-right: 10px;
+}
+
+.slider-img {
+  width: 100%;
+}
+
+.flickity-page-dots {
+ display: none;
+}
+</style>
 </head>
 
 <body>
@@ -17,7 +42,17 @@
       </div>
       <div class="game-bottom">
         <div class="game-left">
-          <img src="{{ asset('images') }}/{{game.image}}" alt="">
+          <!-- ***** SLIDER-START ****** -->
+          <div class="slider">
+            <div class="carousel" data-flickity='{ "autoPlay": true }'>
+              {% for image in images %}
+                 <div class="carousel-cell">
+                  <img src="{{ asset('images') }}/{{image.image}}">
+                </div>
+              {% endfor %}
+            </div>
+        </div>
+        <!-- ***** SLIDER-END ****** -->
         </div>
         <div class="game-right">
           <div class="seller">
@@ -25,7 +60,7 @@
               saspegas
             </div>
             <div class="seller-rate">
-              99% | 6950 S atış
+              99% | 6950 Satış
             </div>
           </div>
           <div class="price">

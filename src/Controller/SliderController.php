@@ -22,6 +22,8 @@ class SliderController extends Controller
         ]);
     }
 
+  
+
     /**
      * @Route("/admin/slider/ekle", name="add-slider", methods="GET|POST")
      */
