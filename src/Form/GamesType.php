@@ -17,6 +17,7 @@ class GamesType extends AbstractType
             ->add('image')
             ->add('status')
             ->add('category')
+            ->add('description')
         ;
     }
 

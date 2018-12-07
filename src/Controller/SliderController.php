@@ -43,4 +43,30 @@ class SliderController extends Controller
 
         return $this->render('admin/slider/slider-ekle.html.twig');
     }
+
+
+    /**
+     * @Route("/admin/slider/edit/{id}", name="update-slider", methods="GET|POST")
+     */
+    public function editSlider(Request $request, Sliders $sliders): Response
+    {
+        
+        
+
+        $form = $this->createForm(SlidersType::class, $sliders);
+        $form->handleRequest($request);
+
+
+        //Save to DATABASE
+        if($form->isSubmitted() && $form->isValid()) {
+          
+            $this ->getDoctrine() ->getManager()->flush();
+            return $this->redirectToRoute('slider');
+        }
+
+        return $this->render('admin/slider/slider-edit.html.twig', [
+            'sliders' => $sliders,
+            'form' => $form->createView(),
+        ]);
+    }
 }

@@ -46,7 +46,7 @@
 								{% else %}
 									<td>Null</td>
 								{% endif %}
-								<td><i class="btn btn-primary fa fa-edit"></i></td>
+								<td><a href="{{ path("update-slider", {'id': slide.id} ) }}"> <i class="btn btn-primary fa fa-edit"></i></a></td>
 								<td><i class="btn btn-danger fa fa-trash"></i> </td>
 							</tr>
 

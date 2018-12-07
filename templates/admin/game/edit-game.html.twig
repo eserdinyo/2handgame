@@ -19,6 +19,7 @@
             <input type="number" name="games[price]" value="{{game.price}}" class="form-control" placeholder="Oyun Fiyatı">
             <br>
             <input type="text" name="games[image]" value="{{game.image}}" class="form-control" placeholder="Resim Yolu">
+            <input type="hidden" name="games[status]"  value="false">
 
             <br>
             <label for="">Kategori</label>
@@ -29,6 +30,22 @@
               <option value="XBOX ONE">XBOX ONE</option>
               <option value="XBOX 360">XBOX 360</option>
             </select>
+            <br>
+            <label for="">Açıklama</label>
+
+            <br>
+
+            <textarea name="games[description]" id="editor">
+               {{game.description}}
+            </textarea>
+
+            <script>
+                        ClassicEditor
+                            .create( document.querySelector( '#editor' ) )
+                            .catch( error => {
+                                console.error( error );
+                            } );
+            </script>
 
             <button type="submit" class="btn btn-info" style="margin-top: 20px">Kaydet</button>
           </form>

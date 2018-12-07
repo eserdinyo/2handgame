@@ -1,8 +1,9 @@
 {% extends 'admin_base.html.twig' %}
 
-
 {% block title %}Oyunlar{% endblock %}
 {% block content %}
+
+
 <!-- MAIN -->
 <div class="main">
   <!-- MAIN CONTENT -->
@@ -31,6 +32,18 @@
               <option value="XBOX ONE">XBOX ONE</option>
               <option value="XBOX 360">XBOX 360</option>
             </select>
+            <br>
+            <label for="">Açıklama</label>
+            <textarea name="games[description]" id="editor"></textarea>
+          
+                  <script>
+                              ClassicEditor
+                                  .create( document.querySelector( '#editor' ) )
+                                  .catch( error => {
+                                      console.error( error );
+                                  } );
+                  </script>
+
 
             <button type="submit" class="btn btn-info" style="margin-top: 20px">Kaydet</button>
           </form>
@@ -42,5 +55,8 @@
     </div>
   </div>
 </div>
+
+
+
 <!-- END MAIN -->
 {% endblock %}

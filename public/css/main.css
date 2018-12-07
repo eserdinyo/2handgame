@@ -125,6 +125,23 @@ a {
   color: #333;
 }
 
+.desc {
+  margin-bottom: 20px;
+  padding: 0 20px;
+}
+
+.desc p {
+  font-family: Helvetica, sans-serif;
+  line-height: 1.6;
+}
+
+.desc__title {
+  border-bottom: 1px dotted #dddddd;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+  width: 50%;
+}
+
 .price {
   margin-top: 30px;
   font-size: 40px;

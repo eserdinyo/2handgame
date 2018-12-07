@@ -72,12 +72,16 @@ class GameController extends Controller
      * @Route("/admin/oyunlar/edit/{id}", name="edit-game", methods="GET|POST")
      */
     public function editGame(Request $request, Games $games): Response
-    {    $form = $this->createForm(GamesType::class, $games);
-         $form->handleRequest($request);
+    {    
+        $form = $this->createForm(GamesType::class, $games);
+        $form->handleRequest($request);
+        
+
         
 
          //Save to DATABASE
         if($form->isSubmitted() && $form->isValid()) {
+            
             $this ->getDoctrine() ->getManager()->flush();
 
             return $this->redirectToRoute('oyunlar');
