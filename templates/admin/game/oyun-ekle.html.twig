@@ -19,7 +19,7 @@
             <br>
             <label for="">Oyun Fiyatı</label>
             <input type="number" name="games[price]" class="form-control" placeholder="Oyun Fiyatı">
-            <input type="hidden" name="games[status]"  value="false">
+            <input type="hidden" name="games[status]"  value="true">
             <br>
             <label for="">Oyun Resim</label>
             <input type="file" name="imagename"  class="form-control">
@@ -27,10 +27,11 @@
             <br>
             <label for="">Kategori</label>
             <select name="games[category]" class="form-control">
-              <option value="PS4">PS4</option>
-              <option value="PS3">PS3</option>
-              <option value="XBOX ONE">XBOX ONE</option>
-              <option value="XBOX 360">XBOX 360</option>
+             {% for cat in catList %}
+              
+                <option value="{{ cat.id }}">{{ cat.name }}</option>
+
+              {% endfor %}
             </select>
             <br>
             <label for="">Açıklama</label>

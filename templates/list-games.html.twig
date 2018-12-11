@@ -147,22 +147,6 @@ ul#menu-v, #menu-v ul
 <body>
   {% include 'components/header.html.twig' %}
 
-  <!-- ***** SLIDER-START ****** -->
-  <div class="slider">
-    <div class="carousel" data-flickity='{ "autoPlay": true }'>
-      {% for slide in sliders %}
-      <div class="carousel-cell">
-        <img class="slider-img" src="{{ asset('images') }}/{{slide.image}}" alt="">
-        <div class="slider-game">
-          <div class="slider-game__name"><a href="{{slide.url}}">{{slide.name}}</a></div>
-          <div class="slider-game__price">{{slide.price}} TL</div>
-        </div>
-      </div>
-      {% endfor %}
-    </div>
-  </div>
-  <!-- ***** SLIDER-END ****** -->
-
   <div class="container">
     <div class="main-content">
       <div class="sidebar">

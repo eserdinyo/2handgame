@@ -15,6 +15,7 @@ class SlidersType extends AbstractType
             ->add('name')
             ->add('price')
             ->add('image')
+            ->add('url')
             ->add('status')
         ;
     }

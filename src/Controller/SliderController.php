@@ -35,6 +35,14 @@ class SliderController extends Controller
 
         //Save to DATABASE
         if($form->isSubmitted() && $form->isValid()) {
+
+
+            $file = $request->files->get('imagename');
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+         
+            $file->move($this->getParameter('images_directory'), $fileName);
+            $slider->setImage($fileName); 
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($slider);
             $em->flush();

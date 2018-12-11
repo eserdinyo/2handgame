@@ -4,6 +4,10 @@ namespace App\Controller;
 
 use App\Entity\Games;
 use App\Entity\Sales;
+use App\Entity\Admin\Category;
+use App\Repository\CategoryRepository;
+
+
 use App\Form\GamesType;
 use App\Form\SalesType;
 
@@ -39,13 +43,14 @@ class GameController extends Controller
     /**
      * @Route("/admin/oyunlar/add", name="add-game", methods="GET|POST")
      */
-    public function addGame(Request $request): Response
+    public function addGame(Request $request, CategoryRepository $catRepo): Response
     {   
        $game = new Games();
        $form = $this->createForm(GamesType::class, $game);
        $form->handleRequest($request);
 
-       
+       $catList = $catRepo->findBy(['parentId' => 0]);
+
 
 
         //Save to DATABASE
@@ -65,6 +70,7 @@ class GameController extends Controller
 
         return $this->render('admin/game/oyun-ekle.html.twig', [
             'form' => $form->createView(),
+            'catList' => $catList,
         ]);
     }  
 
