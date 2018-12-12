@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bc25167d7c5788def29635b0e35d7460",
+    "content-hash": "7368a636aa00ae3e5a2af421751e46b9",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -3697,16 +3697,16 @@
         },
         {
             "name": "symfony/security",
-            "version": "v3.4.17",
+            "version": "v3.4.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/security.git",
-                "reference": "c2b1444d0d56a086c2b0438e8b9024e9b3441e05"
+                "reference": "ee26f3b8aa1fdebcaea2ee573d99d25fd1c179a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security/zipball/c2b1444d0d56a086c2b0438e8b9024e9b3441e05",
-                "reference": "c2b1444d0d56a086c2b0438e8b9024e9b3441e05",
+                "url": "https://api.github.com/repos/symfony/security/zipball/ee26f3b8aa1fdebcaea2ee573d99d25fd1c179a3",
+                "reference": "ee26f3b8aa1fdebcaea2ee573d99d25fd1c179a3",
                 "shasum": ""
             },
             "require": {
@@ -3753,7 +3753,10 @@
                     "Symfony\\Component\\Security\\": ""
                 },
                 "exclude-from-classmap": [
-                    "/Tests/"
+                    "/Core/Tests/",
+                    "/Csrf/Tests/",
+                    "/Guard/Tests/",
+                    "/Http/Tests/"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -3772,7 +3775,7 @@
             ],
             "description": "Symfony Security Component",
             "homepage": "https://symfony.com",
-            "time": "2018-10-02T12:28:39+00:00"
+            "time": "2018-12-06T11:25:03+00:00"
         },
         {
             "name": "symfony/security-bundle",

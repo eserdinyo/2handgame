@@ -4,12 +4,14 @@ namespace App\Controller;
 
 use App\Entity\Games;
 use App\Entity\Sales;
+use App\Entity\Messages;
 use App\Entity\Admin\Category;
 use App\Repository\CategoryRepository;
 
 
 use App\Form\GamesType;
 use App\Form\SalesType;
+use App\Form\MessagesType;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
@@ -140,9 +142,10 @@ class GameController extends Controller
        $form->handleRequest($request);
        
        $games = $this -> getDoctrine()->getRepository(Games::class)->findAll();  
-
+     
         //Save to DATABASE
-        if($form->isSubmitted() && $form->isValid()) {
+        if($form->isSubmitted()) {
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($sale);
             $em->flush();
@@ -153,5 +156,34 @@ class GameController extends Controller
             'form' => $form->createView(),
             'games' => $games,
         ]);
+    }
+
+    /**
+     * @Route("/contact", name="contact", methods="GET|POST")
+     */
+    public function contact(Request $request): Response
+    {   
+        $message = new Messages();
+        $form = $this->createForm(MessagesType::class, $message);
+        $form->handleRequest($request);
+        
+        $submittedToken = $request->request->get('token');
+
+        if ($form->isSubmitted()) {
+          
+           if($this->isCsrfTokenValid('form-message', $submittedToken)) {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($message);
+                $em->flush();
+
+                return $this->redirectToRoute('home');
+           }
+        }
+
+        return $this->render('contact.html.twig', [
+            'message' => $message,
+            'form' => $form->createView(),
+        ]);
+       
     }
 }
