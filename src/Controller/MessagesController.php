@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/messages")
+ * @Route("admin/messages")
  */
 class MessagesController extends Controller
 {
@@ -49,8 +49,15 @@ class MessagesController extends Controller
     /**
      * @Route("/{id}", name="messages_show", methods="GET")
      */
-    public function show(Messages $message): Response
-    {
+    public function show(Messages $message, $id): Response
+    {   
+        
+        $em = $this->getDoctrine()->getManager();
+        $sql = "UPDATE messages SET status ='Okundu' WHERE id = :id";
+        $statement = $em->getConnection()->prepare($sql);
+        $statement->bindValue('id', $id);
+        $statement->execute();
+
         return $this->render('messages/show.html.twig', ['message' => $message]);
     }
 
@@ -72,6 +79,22 @@ class MessagesController extends Controller
             'message' => $message,
             'form' => $form->createView(),
         ]);
+    }
+
+    /**
+     * @Route("/{id}/update", name="admin_messages_update", methods="GET|POST")
+     */
+    public function updateMessage(Request $request, Messages $message, $id): Response
+    {
+        $em = $this->getDoctrine()->getManager();
+        $sql = "UPDATE messages SET comment = :comment WHERE id = :id";
+        $statement = $em->getConnection()->prepare($sql);
+        $statement->bindValue('id', $id);
+        $statement->bindValue('comment', $request->request->get('comment'));
+        $statement->execute();
+       
+
+        return $this->render('messages/show.html.twig', ['message' => $message, 'id'=>$id]);
     }
 
     /**

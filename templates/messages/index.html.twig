@@ -1,24 +1,33 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin_base.html.twig' %}
 
-{% block title %}Messages index{% endblock %}
 
-{% block body %}
-    <h1>Messages index</h1>
+{% block title %}Oyunlar{% endblock %}
+{% block content %}
+<!-- MAIN -->
+<div class="main">
+	<!-- MAIN CONTENT -->
+	<div class="main-content">
+		<div class="container-fluid">
+			<h3 class="page-title">Mesajlar</h3>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Subject</th>
-                <th>Message</th>
-                <th>Comment</th>
-                <th>Status</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
+			<!-- BASIC TABLE -->
+			<div class="panel">
+
+				<div class="panel-body">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>Name</th>
+								<th>Email</th>
+								<th>Subject</th>
+								<th>Message</th>
+								<th>Comment</th>
+								<th>Status</th>
+								<th>Show</th>
+							</tr>
+						</thead>
+						<tbody>
         {% for message in messages %}
             <tr>
                 <td>{{ message.id }}</td>
@@ -29,17 +38,11 @@
                 <td>{{ message.comment }}</td>
                 <td>{{ message.status }}</td>
                 <td>
-                    <a href="{{ path('messages_show', {'id': message.id}) }}">show</a>
-                    <a href="{{ path('messages_edit', {'id': message.id}) }}">edit</a>
+                    <a href="{{ path('messages_show', {'id': message.id}) }}"><i class="fa fa-eye"></i></a>
                 </td>
             </tr>
         {% else %}
-            <tr>
-                <td colspan="8">no records found</td>
-            </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('messages_new') }}">Create new</a>
 {% endblock %}

@@ -1,12 +1,22 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin_base.html.twig' %}
 
-{% block title %}Messages{% endblock %}
 
-{% block body %}
-    <h1>Messages</h1>
+{% block title %}Oyunlar{% endblock %}
+{% block content %}
+<!-- MAIN -->
+<div class="main">
+	<!-- MAIN CONTENT -->
+	<div class="main-content">
+		<div class="container-fluid">
+			<h3 class="page-title">Mesajlar</h3>
 
-    <table class="table">
-        <tbody>
+			<!-- BASIC TABLE -->
+			<div class="panel">
+
+				<div class="panel-body">
+					<table class="table">
+					
+						<tbody>
             <tr>
                 <th>Id</th>
                 <td>{{ message.id }}</td>
@@ -37,8 +47,14 @@
             </tr>
         </tbody>
     </table>
+    <form action="{{ path('admin_messages_update', {'id': message.id}) }}" method="POST">
+        
+    <textarea name="comment" id="" cols="40" rows="3">
+        {{ message.comment }}        
+    </textarea> <br>
+    <input type="submit" value="Update">
+    </form>
 
-    <a href="{{ path('messages_index') }}">back to list</a>
 
     <a href="{{ path('messages_edit', {'id': message.id}) }}">edit</a>
 
