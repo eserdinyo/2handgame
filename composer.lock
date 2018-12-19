@@ -3779,16 +3779,16 @@
         },
         {
             "name": "symfony/security-bundle",
-            "version": "v3.4.17",
+            "version": "v3.4.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/security-bundle.git",
-                "reference": "fab50cef3b3187e0da05eb3c34cf281573cb9b90"
+                "reference": "3874071324bacef0bc368bdcc516ba5fa8d3c430"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security-bundle/zipball/fab50cef3b3187e0da05eb3c34cf281573cb9b90",
-                "reference": "fab50cef3b3187e0da05eb3c34cf281573cb9b90",
+                "url": "https://api.github.com/repos/symfony/security-bundle/zipball/3874071324bacef0bc368bdcc516ba5fa8d3c430",
+                "reference": "3874071324bacef0bc368bdcc516ba5fa8d3c430",
                 "shasum": ""
             },
             "require": {
@@ -3860,7 +3860,7 @@
             ],
             "description": "Symfony SecurityBundle",
             "homepage": "https://symfony.com",
-            "time": "2018-10-02T12:28:39+00:00"
+            "time": "2018-11-11T19:48:54+00:00"
         },
         {
             "name": "symfony/serializer",

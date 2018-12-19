@@ -21,9 +21,15 @@
     </div>
 
     <nav>
-      <a href="/sell-game">Oyun Sat</a>
       <a href="/contact">Bize Ulaşın</a>
-      <a href="/register">Üye Ol</a>
-      <a href="/login">Giriş Yap</a>
+
+      {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <a href="/sell-game">Oyun Sat</a>
+        <p>Email: {{ app.user.email }}</p>
+        <a href="{{ path('logout') }}">Çikis</a>
+      {% else %}
+        <a href="/register">Üye Ol</a>
+        <a href="/login">Giriş Yap</a>
+      {% endif %}
     </nav>
   </header>
