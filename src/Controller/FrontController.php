@@ -6,6 +6,9 @@ use App\Entity\Games;
 use App\Entity\Sliders;
 use App\Entity\Admin\Category;
 use App\Repository\CategoryRepository;
+use App\Repository\SettingRepository;
+
+
 
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -16,10 +19,12 @@ class FrontController extends Controller
     /**
      * @Route("/", name="home")
      */
-    public function index()
+    public function index(SettingRepository $settingRepository)
     {   
         $games = $this -> getDoctrine()->getRepository(Games::class)->findAll();  
-        $sliders = $this -> getDoctrine()->getRepository(Sliders::class)->findAll();  
+        $sliders = $this -> getDoctrine()->getRepository(Sliders::class)->findAll(); 
+        $data = $settingRepository->findAll();
+
         $cats = $this->categoryList();
         $cats[0] = '<ul id="menu-v">';
 
@@ -27,6 +32,7 @@ class FrontController extends Controller
             'games' => $games,
             'sliders' => $sliders,
             'cats' => $cats,
+            'data' => $data[0],
         ]);
     }
 
@@ -78,5 +84,6 @@ class FrontController extends Controller
         ]);
 
     }
+
 
 }

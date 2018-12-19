@@ -7,6 +7,8 @@ use App\Entity\Sales;
 use App\Entity\Messages;
 use App\Entity\Admin\Category;
 use App\Repository\CategoryRepository;
+use App\Repository\SettingRepository;
+
 
 
 use App\Form\GamesType;
@@ -161,8 +163,11 @@ class GameController extends Controller
     /**
      * @Route("/contact", name="contact", methods="GET|POST")
      */
-    public function contact(Request $request): Response
-    {   
+    public function contact(Request $request, SettingRepository $settingRepository): Response
+    {  
+        
+        $data = $settingRepository->findAll();
+        
         $message = new Messages();
         $form = $this->createForm(MessagesType::class, $message);
         $form->handleRequest($request);
@@ -183,6 +188,7 @@ class GameController extends Controller
         return $this->render('contact.html.twig', [
             'message' => $message,
             'form' => $form->createView(),
+            'data' => $data[0],
         ]);
        
     }
