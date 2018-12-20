@@ -84,6 +84,8 @@
 							{% for sale in sales %}
 
 
+
+
               <div class="bottom-seller">
                 <div class="seller-left">
                   <div class="other-seller-name">
@@ -102,11 +104,14 @@
                   <div class="bottom-price">
                    {{ sale.price }} ₺
                   </div>
+                <form action="{{ path("shop_cart_new")}}" method="POST">
+                  <input type="hidden" name="productid" value="{{ sale.id }}">
+                  <input type="hidden" name="userid" value="1">
                   <div class="other-buy">
-                    <a class="other-buy-btn" href="#">
-                      <i class="fas fa-shopping-cart"></i>
-                    </a>
+                    <button class="other-buy-btn" type="submit"><i style="color:white" class="fas fa-shopping-cart"></i></button>
                   </div>
+                </form>
+
                 </div>
               </div>
 
