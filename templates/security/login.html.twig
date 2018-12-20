@@ -1,35 +1,69 @@
 
-{% block title %}Log in!{% endblock %}
+<!DOCTYPE html>
+<html>
 
-{% block body %}
-<form method="post">
+<head>
+  <meta charset="UTF-8">
+  {% block stylesheets %}{% endblock %}
+</head>
+
+<body>
+  <!DOCTYPE html>
+  <html lang="zxx">
+
+  <head>
+    <title>2ndHand Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+    <link rel="stylesheet" href="css/flickity.min.css">
+    <link rel="stylesheet" href="css/main.css">
+
+  </head>
+
+  <body>
+  <div class="form">
+      <header class="login-header">
+        <div class="logo">
+          <a href="/">
+            <img class="logo__img" src="./images/logo.png" alt=""></a>
+        </div>
+
+        <nav>
+          <a class="login-link" href="/login">Giriş Yap</a>
+          <a href="/register">Üye Ol</a>
+        </nav>
+      </header>
+<form class="login" method="post">
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputEmail" class="sr-only">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
-    <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+     <div class="form-group">
+        <i class="fas fa-envelope icon"></i>
+        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
 
+    </div>
+    <div class="form-group">
+        <i class="fas fa-lock icon"></i>
+        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+    </div>
     <input type="hidden" name="_csrf_token"
            value="{{ csrf_token('authenticate') }}"
     >
-
-    {#
-        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-        See https://symfony.com/doc/current/security/remember_me.html
-
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" name="_remember_me"> Remember me
-            </label>
-        </div>
-    #}
-
     <button class="btn btn-lg btn-primary" type="submit">
         Sign in
     </button>
 </form>
-{% endblock %}
+</div>
+</div>
+
+
+    {% include 'components/footer.html.twig' %}
+
+    {% block body %}{% endblock %}
+    {% block javascripts %}{% endblock %}
+  </body>
+
+  </html>
