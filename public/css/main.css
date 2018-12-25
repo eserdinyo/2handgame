@@ -402,3 +402,40 @@ textarea {
 .sell-game__btn:hover {
   background: #273c75c5;
 }
+
+.buy-btn {
+  background: #1B995F;
+  padding: 10px 20px;
+  margin-top: 50px;
+  text-transform: uppercase;
+  position: absolute;
+  border-radius: 3px;
+}
+
+.sidebar {
+  margin-right: 100px;
+}
+
+.sidebar-content {
+  background: #191919;
+  padding: 10px 30px;
+  border-radius: 5px;
+  width: 200px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.411);
+
+}
+
+.sidebar-content li {
+  margin-top: 10px;
+  transition: all .2s;
+
+}
+
+.sidebar-content li a {
+  transition: all .2s;
+}
+
+.sidebar-content li:hover {
+  transform: translateX(3px);
+  border-left: 2px solid #fff;
+}

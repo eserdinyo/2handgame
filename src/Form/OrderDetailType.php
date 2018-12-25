@@ -2,19 +2,22 @@
 
 namespace App\Form;
 
-use App\Entity\User;
+use App\Entity\OrderDetail;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class UserType extends AbstractType
+class OrderDetailType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('email')
-            ->add('roles')
-            ->add('password')
+            ->add('orderid')
+            ->add('userid')
+            ->add('productid')
+            ->add('price')
+            ->add('quantity')
+            ->add('amount')
             ->add('name')
             ->add('status')
         ;
@@ -23,9 +26,7 @@ class UserType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => User::class,
-            'csrf_protection'=> false,
-            
+            'data_class' => OrderDetail::class,
         ]);
     }
 }

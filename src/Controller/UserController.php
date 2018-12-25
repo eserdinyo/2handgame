@@ -62,7 +62,9 @@ class UserController extends Controller
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+
+        if ($form->isSubmitted()) {
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('user_edit', ['id' => $user->getId()]);

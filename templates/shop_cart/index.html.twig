@@ -40,6 +40,9 @@
         <h3>Sepetim</h3>
       </div>
       <div class="game-bottom">
+        <div class="sidebar">
+             {{ include('user/usersidebar.html.twig') }}
+        </div>
         <table id="customers">
             <thead>
                 <tr>
@@ -65,7 +68,11 @@
             {% endfor %}
             </tbody>
         </table>
+
       </div>
+      <a href="{{ path('orders_new') }}" class="buy-btn">Sepeti Onayla</a>
+
+
        
       </div>
     </div>

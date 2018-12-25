@@ -36,15 +36,29 @@ class ShopCartRepository extends ServiceEntityRepository
     }
     */
 
-    /*
-    public function findOneBySomeField($value): ?ShopCart
+    // User shopcart products
+    public function getUserShopcart($userid): array
     {
-        return $this->createQueryBuilder('s')
-            ->andWhere('s.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        $em = $this->getEntityManager();
+        $query = $em ->createQuery(
+            "SELECT p.price, s.quantity, s.productid, s.userid, (p.price) as total FROM App\Entity\ShopCart s, App\Entity\Sales p WHERE s.productid = p.id and s.userid = :userid"
+        )->setParameter('userid', $userid);
+        return $query->getResult();
     }
-    */
+
+    // Sum of user shopcart products
+    public function getUserShopCartTotal($userid): ?float
+    {
+        $em = $this-> getEntityManager();
+        $query = $em -> createQuery('SELECT sum(p.price) as total FROM App\Entity\ShopCart s, App\Entity\Sales p WHERE s.productid = p.id and s.userid = :userid')->setParameter('userid',$userid);
+        $result = $query->getResult();
+
+        if($result[0]["total"] != null) {
+            return $result[0]["total"];
+
+        }else {
+            return 0;
+        }
+    }
+    
 }
