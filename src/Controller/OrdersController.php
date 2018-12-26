@@ -6,6 +6,7 @@ use App\Entity\Orders;
 use App\Entity\OrderDetail;
 use App\Form\OrdersType;
 use App\Repository\OrdersRepository;
+use App\Repository\OrderDetailRepository;
 use App\Repository\ShopCartRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,7 +23,12 @@ class OrdersController extends Controller
      */
     public function index(OrdersRepository $ordersRepository): Response
     {
-        return $this->render('orders/index.html.twig', ['orders' => $ordersRepository->findAll()]);
+
+        $user = $this->getUser();
+        $userid = $user->getid();
+
+        
+        return $this->render('orders/index.html.twig', ['orders' => $ordersRepository->findBy(['userid'=>$userid])]);
     }
 
     /**
@@ -96,9 +102,21 @@ class OrdersController extends Controller
     /**
      * @Route("/{id}", name="orders_show", methods="GET")
      */
-    public function show(Orders $order): Response
+    public function show(Orders $order, OrderDetailRepository $ordersRepository): Response
     {
-        return $this->render('orders/show.html.twig', ['order' => $order]);
+        $user = $this->getUser();
+        $userid = $user->getid();
+        $orderid = $order->getid();
+
+        $orderdetail = $ordersRepository->findBy(
+            ['orderid' =>$orderid]
+        );
+
+
+        return $this->render('orders/show.html.twig', [
+            'order' => $order, 
+            'orderdetails' =>$orderdetail,
+        ]);
     }
 
     /**

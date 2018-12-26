@@ -25,7 +25,7 @@
 
       {% if is_granted('IS_AUTHENTICATED_FULLY') %}
         <a href="/sell-game">Oyun Sat</a>
-        <p class="user">{{ app.user.email }}</p>
+        <a class="user" href="/orders">{{ app.user.email }}</a>
         <a href="{{ path('logout') }}">Çikis</a>
       {% else %}
         <a href="/register">Üye Ol</a>

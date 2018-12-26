@@ -8,7 +8,7 @@
      #customers {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  width: 100%;
+  width: 800px;
 }
 
 #customers td, #customers th {
@@ -50,12 +50,7 @@
                 <th>Userid</th>
                 <th>Amount</th>
                 <th>Name</th>
-                <th>Address</th>
-                <th>City</th>
                 <th>Phone</th>
-                <th>Shipinfo</th>
-                <th>Status</th>
-                <th>Note</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -66,12 +61,7 @@
                 <td>{{ order.userid }}</td>
                 <td>{{ order.amount }}</td>
                 <td>{{ order.name }}</td>
-                <td>{{ order.address }}</td>
-                <td>{{ order.city }}</td>
                 <td>{{ order.phone }}</td>
-                <td>{{ order.shipinfo }}</td>
-                <td>{{ order.status }}</td>
-                <td>{{ order.note }}</td>
                 <td>
                     <a href="{{ path('orders_show', {'id': order.id}) }}">
                         <i  style="color:#27ae60" class="fa fa-eye"></i>
