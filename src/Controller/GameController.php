@@ -53,7 +53,7 @@ class GameController extends Controller
        $form = $this->createForm(GamesType::class, $game);
        $form->handleRequest($request);
 
-       $catList = $catRepo->findBy(['parentId' => 0]);
+       $catList = $catRepo->findAll();
 
 
 

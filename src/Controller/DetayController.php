@@ -19,7 +19,7 @@ class DetayController extends Controller
     {   
         $images = $this->getDoctrine()->getRepository(Image::class)->findBy(["product_id" => $id]);
         $game = $this->getDoctrine()->getRepository(Games::class)->find($id);
-        $sales = $this -> getDoctrine()->getRepository(Sales::class)->findBy(["oyunId"=> $id]);  
+        $sales = $this -> getDoctrine()->getRepository(Sales::class)->findBy(["oyunId"=> $id]);
 
          
         return $this->render('game-detay.html.twig', [

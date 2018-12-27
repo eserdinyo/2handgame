@@ -134,7 +134,8 @@ ul#menu-v, #menu-v ul
     position:absolute;
     display:none;
     left:100%;
-    top:50%; transform:translateY(-50%);
+    top: 100%;
+    transform:translateY(-50%);
 }
 
 #menu-v li:hover > ul
@@ -150,9 +151,8 @@ ul#menu-v, #menu-v ul
   <div class="container">
     <div class="main-content">
       <div class="sidebar">
-        {% for cat in cats %}
-          {{ cat | raw}}
-        {% endfor %}
+  {% include 'categorySidebar.html.twig' %}
+       
       </div>
       <div class="main">
         {% for game in games %}
