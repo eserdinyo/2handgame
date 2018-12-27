@@ -176,7 +176,7 @@ class GameController extends Controller
 
         if ($form->isSubmitted()) {
           
-           if($this->isCsrfTokenValid('form-message', $submittedToken)) {
+           if($this->isCsrfTokenValid('user-form', $submittedToken)) {
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($message);
                 $em->flush();

@@ -4,13 +4,19 @@ namespace App\Controller;
 
 use App\Entity\Games;
 use App\Entity\Sliders;
+use App\Entity\User;
+
+use App\Form\UserType;
+
+
 use App\Entity\Admin\Category;
 use App\Repository\CategoryRepository;
 use App\Repository\SettingRepository;
+use App\Repository\UserRepository;
 
 
-
-
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -83,6 +89,43 @@ class FrontController extends Controller
             'cats' => $cats,
         ]);
 
+    }
+
+    /**
+     * @Route("/register", name="register", methods="GET|POST")
+     */
+    public function register(Request $request, UserRepository $userRepo): Response
+    {
+        $user = new User();
+        $form = $this->createForm(UserType::class, $user);
+        $form->handleRequest($request); 
+        $submittedToken = $request->request->get('token');
+
+
+        if ($this->isCsrfTokenValid('user-form', $submittedToken)) {
+            $emailData = $userRepo->findBy(['email' => $user->getEmail()]);
+
+            if(!$emailData) {
+                if($form->isSubmitted()) {
+
+                    $em = $this->getDoctrine()->getManager();
+                    $em->persist($user);
+                    $em->flush();
+                    return $this->redirectToRoute('user_index');
+                }
+            }else {
+                return $this->render('register.html.twig', [
+              
+                ]);
+            }
+
+          
+        }
+
+        return $this->render('register.html.twig', [
+            'user' => $user,
+            'form' => $form->createView(),
+        ]);
     }
 
 

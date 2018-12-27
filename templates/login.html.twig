@@ -6,6 +6,8 @@
   {% block stylesheets %}{% endblock %}
 </head>
 
+
+
 <body>
   <!DOCTYPE html>
   <html lang="zxx">
@@ -18,6 +20,26 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
     <link rel="stylesheet" href="css/flickity.min.css">
     <link rel="stylesheet" href="css/main.css">
+
+    <style>
+        
+        .login_link {
+        position: relative;
+  padding: 10px;
+      }
+      .login_link:after{
+        content: "";
+  position: absolute;
+  width: 60%;
+  height: 2px;
+  background: #c23516;
+  border-radius: 2px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+      }
+
+    </style>
 
   </head>
 
@@ -32,8 +54,8 @@
         </div>
 
         <nav>
-          <a class="login-link" href="/login">Giriş Yap</a>
-          <a href="/register">Üye Ol</a>
+          <a class="login_link" href="/login">Giriş Yap</a>
+          <a class="register-link" href="/register">Üye Ol</a>
         </nav>
       </header>
       <form class="login" action="/action_page.php">
