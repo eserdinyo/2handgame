@@ -56,7 +56,12 @@ class FrontController extends Controller
         if(count($result) > 0) {
             $user_tree_array[] = "<ul>";
             foreach ($result as $row) {
-                $user_tree_array[] = "<li> <a href='category/".$row['id']."'>".$row['name']."</a>";
+                if($row['parent_id'] == 0) {
+                    $user_tree_array[] = "<li> <a href='javascript:;'>".$row['name']."</a>";
+                }
+                else {
+                    $user_tree_array[] = "<li> <a href='/category/".$row['id']."'>".$row['name']."</a>";
+                }
                 $user_tree_array = $this->categoryList($row['id'], $user_tree_array);
             }
 
