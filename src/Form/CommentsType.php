@@ -16,6 +16,7 @@ class CommentsType extends AbstractType
             ->add('comment')
             ->add('status')
             ->add('username')
+            ->add('userid')
         ;
     }
 

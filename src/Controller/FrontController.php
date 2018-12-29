@@ -8,12 +8,14 @@ use App\Entity\User;
 use App\Entity\Comments;
 
 use App\Form\UserType;
+use App\Form\CommentsType;
 
 
 use App\Entity\Admin\Category;
 use App\Repository\CategoryRepository;
 use App\Repository\SettingRepository;
 use App\Repository\UserRepository;
+use App\Repository\CommentsRepository;
 
 
 use Symfony\Component\HttpFoundation\Request;
@@ -135,6 +137,49 @@ class FrontController extends Controller
         ]);
     }
 
+    /**
+     * @Route("/yorumlarim", name="yorumlarim", methods="GET|POST")
+     */
+    public function yorumlarim(Request $request, CommentsRepository $commentsRepo): Response
+    {
+        $user = $this->getUser();
+        $userid = $user->getid();
+
+        return $this->render('yorumlarim.html.twig', ['comments' => $commentsRepo->findBy(['userid'=>$userid])]);
 
     }
+
+    /**
+     * @Route("yorum-yap", name="yorum-yap", methods="GET|POST")
+     */
+    public function yorum(Request $request): Response
+    {   
+
+        $comment = new Comments();
+        $form = $this->createForm(CommentsType::class, $comment);
+        $form->handleRequest($request);
+        $gameID = $request->get('gameID');
+
+        $submittedToken = $request->request->get('token');
+        
+       
+
+        if($request->isMethod('POST')) {
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($comment);
+            $em->flush();
+
+            return $this->redirectToRoute('game-detay', array('id' => $gameID));
+        }
+    
+
+        return $this->render('comments/new.html.twig', [
+            'comment' => $comment,
+            'form' => $form->createView(),
+        ]);
+    }
+
+
+}
 

@@ -23,34 +23,7 @@ class CommentsController extends Controller
         return $this->render('comments/index.html.twig', ['comments' => $commentsRepository->findAll()]);
     }
 
-    /**
-     * @Route("/new", name="comments_new", methods="GET|POST")
-     */
-    public function new(Request $request): Response
-    {
-        $comment = new Comments();
-        $form = $this->createForm(CommentsType::class, $comment);
-        $form->handleRequest($request);
-        $gameID = $request->get('gameID');
-
-        $submittedToken = $request->request->get('token');
-   
-
-        if($request->isMethod('POST')) {
-
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($comment);
-            $em->flush();
-
-            return $this->redirectToRoute('game-detay', array('id' => $gameID));
-        }
     
-
-        return $this->render('comments/new.html.twig', [
-            'comment' => $comment,
-            'form' => $form->createView(),
-        ]);
-    }
 
     /**
      * @Route("/{id}", name="comments_show", methods="GET")
@@ -91,5 +64,7 @@ class CommentsController extends Controller
 
         return $this->redirectToRoute('comments_index');
     }
+
+    
 
 }

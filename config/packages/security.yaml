@@ -40,4 +40,5 @@ security:
         - { path: ^/profile, roles: ROLE_USER }
         - { path: ^/shopcart, roles: ROLE_USER }
         - { path: ^/userpanel, roles: ROLE_USER }
+        
         #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }

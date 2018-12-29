@@ -36,6 +36,11 @@ class Comments
      */
     private $username;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $userid;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -85,6 +90,18 @@ class Comments
     public function setUsername(string $username): self
     {
         $this->username = $username;
+
+        return $this;
+    }
+
+    public function getUserid(): ?int
+    {
+        return $this->userid;
+    }
+
+    public function setUserid(int $userid): self
+    {
+        $this->userid = $userid;
 
         return $this;
     }
