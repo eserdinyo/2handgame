@@ -198,6 +198,7 @@ nav {
 
 .other-seller-title {
   margin-bottom: 50px;
+  margin-top: 20px;
 }
 
 .other-seller-name {
@@ -436,4 +437,60 @@ textarea {
 .sidebar-content li:hover {
   transform: translateX(3px);
   border-left: 2px solid #fff;
+}
+
+/* YORUM */
+.yorum-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.yorum-form textarea {
+  width: 500px;
+  background: #F2F2F2;
+  border: none;
+}
+
+.comments-wrapper h3 {
+  margin-bottom: 10px;
+}
+
+.btn-yorum {
+  width: 100px;
+  margin-top: 10px;
+  background: #1B995F;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 3px;
+  padding: 5px 20px;
+  cursor: pointer;
+  margin-bottom: 30px;
+}
+
+.yorum-link {
+  color: #191919;
+  text-decoration: underline;
+}
+
+.comment {
+  padding: 10px 20px;
+  margin-top: 10px;
+}
+
+.comment:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+.comment__name {
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.comment__detay {
+  font-size: 14px;
+
+}
+
+.dedi {
+  font-weight: 400 !important;
 }

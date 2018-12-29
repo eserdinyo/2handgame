@@ -23,6 +23,10 @@
   </head>
 
   <body>
+
+   {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+      <meta http-equiv="refresh" content="0;URL={{path('home')}}">
+    {% endif %}
   <div class="form">
       <header class="login-header">
         <div class="logo">

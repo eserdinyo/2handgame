@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Games;
 use App\Entity\Sliders;
 use App\Entity\User;
+use App\Entity\Comments;
 
 use App\Form\UserType;
 
@@ -127,6 +128,7 @@ class FrontController extends Controller
           
         }
 
+       
         return $this->render('register.html.twig', [
             'user' => $user,
             'form' => $form->createView(),
@@ -134,4 +136,5 @@ class FrontController extends Controller
     }
 
 
-}
+    }
+
