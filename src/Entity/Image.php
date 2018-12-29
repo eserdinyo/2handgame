@@ -25,6 +25,11 @@ class Image
      * @ORM\Column(type="string", length=255)
      */
     private $image;
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $name;
+
 
     public function getId(): ?int
     {
@@ -43,6 +48,18 @@ class Image
         return $this;
     }
 
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
     public function getImage(): ?string
     {
         return $this->image;
@@ -51,6 +68,18 @@ class Image
     public function setImage(string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getGamename(): ?string
+    {
+        return $this->gamename;
+    }
+
+    public function setGamename(string $gamename): self
+    {
+        $this->gamename = $gamename;
 
         return $this;
     }

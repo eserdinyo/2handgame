@@ -18,8 +18,9 @@
                 <option >Oyun Seç</option>
                 {% for game in games %}
                   <option value="{{ game.id }}">{{ game.name }}</option>
+                  
                 {% endfor %}
-            </select>
+              </select>
             <br>
             <label for="">Oyun Resim</label>
             <input type="file" name="imagename"  class="form-control">

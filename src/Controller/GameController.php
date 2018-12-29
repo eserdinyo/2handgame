@@ -81,8 +81,11 @@ class GameController extends Controller
     /**
      * @Route("/admin/oyunlar/edit/{id}", name="edit-game", methods="GET|POST")
      */
-    public function editGame(Request $request, Games $games): Response
+    public function editGame(Request $request, Games $games,CategoryRepository $catRepo): Response
     {    
+
+       $catList = $catRepo->findAll();
+
         $form = $this->createForm(GamesType::class, $games);
         $form->handleRequest($request);
         
@@ -99,6 +102,8 @@ class GameController extends Controller
 
         return $this->render('admin/game/edit-game.html.twig', [
             'game'=>$games,
+            'catList' => $catList,
+
         ]);
     }
 

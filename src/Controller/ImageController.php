@@ -30,12 +30,22 @@ class ImageController extends Controller
      */
     public function new(Request $request): Response
     {
+
+
         $image = new Image();
         $games = $this -> getDoctrine()->getRepository(Games::class)->findAll();  
         $form = $this->createForm(ImageType::class, $image);
         $form->handleRequest($request);
 
+        
+
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $produtId = $request->request->get('image')['product_id'];
+            $game = $this -> getDoctrine()->getRepository(Games::class)->findBy(["id"=> $produtId]);
+            $oyunName = $game[0]->getName();
+
+            $image->setName($oyunName);
 
             $file = $request->files->get('imagename');
             $fileName = md5(uniqid()).'.'.$file->guessExtension();

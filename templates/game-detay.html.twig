@@ -24,6 +24,11 @@
 
 .slider-img {
   width: 100%;
+  
+}
+
+.carousel-cell {
+  outline: none;
 }
 
 .flickity-page-dots {
@@ -47,7 +52,7 @@
             <div class="carousel" data-flickity='{ "autoPlay": true }'>
               {% for image in images %}
                  <div class="carousel-cell">
-                  <img src="{{ asset('images') }}/{{image.image}}">
+                  <img class="slider-img" src="{{ asset('images') }}/{{image.image}}">
                 </div>
               {% endfor %}
             </div>
@@ -67,7 +72,7 @@
             {{game.price}}.00 ₺
           </div>
           <div class="buy">
-            <a class="buy__btn" href="#">Satın Al</a>
+            <a class="buy__btn" href="#buy">Satın Al</a>
           </div>
         </div>
       </div>
@@ -117,7 +122,7 @@
     </div>
 
     <div class="other-seller">
-      <h2 class="other-seller-title">Diğer Teklifler : {{sales|length}}</h2>
+      <h2 id="buy" class="other-seller-title">Diğer Teklifler : {{sales|length}}</h2>
       
 							{% for sale in sales %}
 
@@ -146,7 +151,7 @@
                   <input type="hidden" name="productid" value="{{ sale.id }}">
                   <input type="hidden" name="userid" value="1">
                   <div class="other-buy">
-                    <button class="other-buy-btn" type="submit"><i style="color:white" class="fas fa-shopping-cart"></i></button>
+                    <button style="cursor:pointer" class="other-buy-btn" type="submit"><i style="color:white" class="fas fa-shopping-cart"></i></button>
                   </div>
                 </form>
 

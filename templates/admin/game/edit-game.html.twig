@@ -23,12 +23,12 @@
 
             <br>
             <label for="">Kategori</label>
-            <select name="games[category]" class="form-control">
-              <option value="{{game.category}}">{{game.category}}</option>
-              <option value="PS4">PS4</option>
-              <option value="PS3">PS3</option>
-              <option value="XBOX ONE">XBOX ONE</option>
-              <option value="XBOX 360">XBOX 360</option>
+           <select name="games[category]" class="form-control">
+             {% for cat in catList %}
+              
+                <option value="{{ cat.id }}">{{ cat.name }}</option>
+
+              {% endfor %}
             </select>
             <br>
             <label for="">Açıklama</label>
