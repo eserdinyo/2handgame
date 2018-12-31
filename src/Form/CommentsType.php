@@ -14,7 +14,6 @@ class CommentsType extends AbstractType
         $builder
             ->add('oyun_id')
             ->add('comment')
-            ->add('status')
             ->add('username')
             ->add('userid')
         ;

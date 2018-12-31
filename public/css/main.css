@@ -186,6 +186,7 @@ nav {
   border-radius: 4px;
   padding: 10px 50px;
   transition: all .2s;
+
 }
 
 .buy__btn:hover {
@@ -241,6 +242,7 @@ nav {
   padding: 10px 12px;
   border-radius: 5px;
   font-size: 15px;
+
 }
 
 .other-seller-rate {
@@ -437,6 +439,11 @@ textarea {
 .sidebar-content li:hover {
   transform: translateX(3px);
   border-left: 2px solid #fff;
+}
+
+.btn-onay {
+  position: absolute;
+  right: 35px;
 }
 
 /* YORUM */

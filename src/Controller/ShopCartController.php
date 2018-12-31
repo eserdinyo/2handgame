@@ -25,13 +25,14 @@ class ShopCartController extends Controller
         $user = $this->getUser();
         $id = $user->getid();
 
-        $sql = "SELECT p.oyunid, p.price, s.* FROM shop_cart s, sales p
+        $sql = "SELECT p.oyun_id, p.price, s.* FROM shop_cart s, sales p
                 WHERE s.productid = p.id AND userid = :userid";
 
         $statement = $em->getConnection()->prepare($sql);
         $statement->bindValue('userid',$id);
         $statement->execute();
         $result = $statement->fetchAll();
+
 
 
         return $this->render('shop_cart/index.html.twig', ['shop_carts' => $result]);

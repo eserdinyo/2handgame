@@ -180,8 +180,10 @@ class GameController extends Controller
         $submittedToken = $request->request->get('token');
 
         if ($form->isSubmitted()) {
+
           
-           if($this->isCsrfTokenValid('user-form', $submittedToken)) {
+           if($this->isCsrfTokenValid('form-message', $submittedToken)) {
+
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($message);
                 $em->flush();

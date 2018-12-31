@@ -8,7 +8,7 @@
      #customers {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  width: 100%;
+  width: 800px;
 }
 
 #customers td, #customers th {
@@ -67,11 +67,16 @@
             {% else %}
             {% endfor %}
             </tbody>
+       
         </table>
-
+          
+     
       </div>
-      <a href="{{ path('orders_new') }}" class="buy-btn">Sepeti Onayla</a>
-
+          {% if(shop_carts) %}
+      
+        <a href="{{ path('orders_new') }}" class="buy-btn btn-onay">Sepeti Onayla</a>
+      {% endif %}
+    
 
        
       </div>

@@ -17,22 +17,14 @@
    
       <div class="form-item">
         <label>Oyun</label>
-        <select name="sales[oyunId]">
+        <select name="sales[oyunid]">
 							{% for game in games %}
               <option value="{{game.id}}">{{game.name}}</option>
 							{% endfor %}
         </select>
-        <input type="hidden" name="sales[username]" value="eserdinyo">
+        <input type="hidden" name="sales[username]" value="{{app.user.name}}">
       </div>
-      <div class="form-item">
-        <label>Kategori</label>
-        <select name="sales[category]">
-          <option value="PS4">PS4</option>
-          <option value="PS4">PS3</option>
-          <option value="PS4">XBOX ONE</option>
-          <option value="PS4">XBOX 360</option>
-        </select>
-      </div>
+      
       <div class="form-item">
         <label>Açıklama</label>
         <textarea name="sales[description]" name="" id="" cols="30" rows="5"></textarea>
