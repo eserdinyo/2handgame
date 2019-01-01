@@ -56,7 +56,7 @@
             {% for shop_cart in shop_carts %}
                 <tr>
                     <td>{{ shop_cart.id }}</td>
-                    <td>{{ shop_cart.oyun_id }}</td>
+                    <td>{{ shop_cart.name }}</td>
                     <td>{{ shop_cart.price }}</td>
                     <td>
                         <a href="{{ path('shop_cart_del', {'id': shop_cart.id}) }}" onclick="return confirm('Are you sure?');">
@@ -70,12 +70,12 @@
        
         </table>
           
-     
-      </div>
-          {% if(shop_carts) %}
+       {% if(shop_carts) %}
       
         <a href="{{ path('orders_new') }}" class="buy-btn btn-onay">Sepeti Onayla</a>
       {% endif %}
+      </div>
+        
     
 
        

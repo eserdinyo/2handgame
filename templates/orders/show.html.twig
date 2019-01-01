@@ -94,7 +94,7 @@
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Product ID</th>
+                        <th>Name</th>
                         <th>Price</th>
                         <th>Toplam</th>
                         <th>Status</th>
@@ -104,7 +104,7 @@
                 {% for detail in orderdetails %}
                     <tr>
                         <td>{{ detail.id }}</td>
-                        <td>{{ detail.productid }}</td>
+                        <td>{{ detail.name }}</td>
                         <td>{{ detail.price }}</td>
                         <td>{{ detail.amount }}</td>
                         <td>{{ detail.status }}</td>

@@ -24,6 +24,10 @@ class Sales
      * @ORM\Column(type="string", length=255)
      */
     private $username;
+     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $name;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -106,6 +110,17 @@ class Sales
     public function setUsername(string $username): self
     {
         $this->username = $username;
+
+        return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+    public function setName(string $name): self
+    {
+        $this->name = $name;
 
         return $this;
     }

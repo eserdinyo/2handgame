@@ -72,77 +72,81 @@
       border-radius: 5px;
       background: #2ecc7073;
     }
-ul#menu-v, #menu-v ul
-{
-    width:200px; /* Main Menu width */
-    border:1px solid rgba(190,190,190,0.3);
-    list-style:none; margin:0; padding:0;
-    z-index:9;
-}     
 
-#menu-v li
-{
-    margin:0;padding:0;
-    position:relative;    
-    background-color:#fff; /*fallback color*/
-	background-color:#fff;
-    transition:background 0.5s;
-}
-#menu-v li:hover
-{
-    background-color:rgba(0,0,0,0.1);
-}
+    ul#menu-v,
+    #menu-v ul {
+      width: 200px;
+      /* Main Menu width */
+      border: 1px solid rgba(190, 190, 190, 0.3);
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      z-index: 9;
+      position: sticky;
+      top: 20px;
+    }
 
-#menu-v a
-{
-    font:normal 12px Arial;
-    border-top:1px solid rgba(190,190,190,0.5);
-    display:block;
-    color: #191919;
-    text-decoration:none;
-    line-height:30px;
-    padding-left:22px; 
-    position:relative;           
-}
+    #menu-v li {
+      margin: 0;
+      padding: 0;
+      position: relative;
+      background-color: #fff;
+      /*fallback color*/
+      background-color: #fff;
+      transition: background 0.5s;
+    }
 
-#menu-v li:first-child a
-{
-    border-top:0;
-}
+    #menu-v li:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
 
-#menu-v a.arrow::after{
-    content:'';
-    position:absolute;
-    display:inline;
-    top:50%;
-    margin-top:-4px;
-    right:8px;
-    border-width:4px;
-    border-style:solid;
-    border-color:transparent transparent transparent white;
-    transition:border-color 0.5s;  
-}
-                
-#menu-v li a.arrow:hover::after
-{
-    border-color:transparent transparent transparent #CCCCCC;
-}
-        
-/*Sub level menu items
+    #menu-v a {
+      font: normal 12px Arial;
+      border-top: 1px solid rgba(190, 190, 190, 0.5);
+      display: block;
+      color: #191919;
+      text-decoration: none;
+      line-height: 30px;
+      padding-left: 22px;
+      position: relative;
+    }
+
+    #menu-v li:first-child a {
+      border-top: 0;
+    }
+
+    #menu-v a.arrow::after {
+      content: '';
+      position: absolute;
+      display: inline;
+      top: 50%;
+      margin-top: -4px;
+      right: 8px;
+      border-width: 4px;
+      border-style: solid;
+      border-color: transparent transparent transparent white;
+      transition: border-color 0.5s;
+    }
+
+    #menu-v li a.arrow:hover::after {
+      border-color: transparent transparent transparent #CCCCCC;
+    }
+
+    /*Sub level menu items
 ---------------------------------------*/
-#menu-v li ul
-{
-    min-width:180px; /* Sub level menu min width */
-    position:absolute;
-    display:none;
-    left:100%;
-    top:100%; transform:translateY(-50%);
-}
+    #menu-v li ul {
+      min-width: 180px;
+      /* Sub level menu min width */
+      position: absolute;
+      display: none;
+      left: 100%;
+      top: 100%;
+      transform: translateY(-50%);
+    }
 
-#menu-v li:hover > ul
-{
-    display:block;
-}
+    #menu-v li:hover>ul {
+      display: block;
+    }
   </style>
 </head>
 
@@ -169,7 +173,7 @@ ul#menu-v, #menu-v ul
     <div class="main-content">
       <div class="sidebar">
         {% for cat in cats %}
-          {{ cat | raw}}
+        {{ cat | raw}}
         {% endfor %}
       </div>
       <div class="main">

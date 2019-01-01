@@ -71,7 +71,7 @@ class OrdersController extends Controller
                     $orderdetail -> setPrice(232);
                     $orderdetail -> setQuantity($item["total"]);
                     $orderdetail -> setAmount($item["total"]);
-                    $orderdetail -> setName("test");
+                    $orderdetail -> setName($item["name"]);
                     $orderdetail -> setStatus("Ordered");
 
 

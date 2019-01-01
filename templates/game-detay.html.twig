@@ -133,6 +133,7 @@
                 <div class="seller-left">
                   <div class="other-seller-name">
                    {{ sale.username }}
+               
                   </div>
                   <div class="other-seller-rate">
                     95% | 652 Satış
@@ -149,6 +150,8 @@
                   </div>
                 <form action="{{ path("shop_cart_new")}}" method="POST">
                   <input type="hidden" name="productid" value="{{ sale.id }}">
+                  <input type="hidden" name="name" value="{{ sale.name}}">
+                  
                   <input type="hidden" name="userid" value="1">
                   <div class="other-buy">
                     <button style="cursor:pointer" class="other-buy-btn" type="submit"><i style="color:white" class="fas fa-shopping-cart"></i></button>

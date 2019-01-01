@@ -41,7 +41,7 @@ class ShopCartRepository extends ServiceEntityRepository
     {
         $em = $this->getEntityManager();
         $query = $em ->createQuery(
-            "SELECT p.price, s.quantity, s.productid, s.userid, (p.price) as total FROM App\Entity\ShopCart s, App\Entity\Sales p WHERE s.productid = p.id and s.userid = :userid"
+            "SELECT p.price, s.quantity, s.productid,s.name, s.userid, p.price as total FROM App\Entity\ShopCart s, App\Entity\Sales p WHERE s.productid = p.id and s.userid = :userid"
         )->setParameter('userid', $userid);
         return $query->getResult();
     }

@@ -49,6 +49,7 @@ class ShopCartController extends Controller
         
         $user = $this->getUser();
         $shopCart->setProductid($request->request->get('productid'));
+        $shopCart->setName($request->request->get('name'));
         $shopCart->setUserid($user->getid());
 
 
