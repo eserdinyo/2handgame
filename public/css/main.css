@@ -504,3 +504,27 @@ textarea {
 .dedi {
   font-weight: 400 !important;
 }
+
+.sepet {
+  margin-right: 10px;
+  position: relative;
+  
+}
+
+.sepet__number {
+  color: #000;
+  font-weight: 500;
+  position: absolute;
+  top: -9px;
+  right: -12px;
+  background-color: #fff;
+  font-size: 14px;
+  padding: 9px;
+  height: 15px;
+  width: 15px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}

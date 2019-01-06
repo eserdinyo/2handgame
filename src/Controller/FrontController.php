@@ -6,6 +6,8 @@ use App\Entity\Games;
 use App\Entity\Sliders;
 use App\Entity\User;
 use App\Entity\Comments;
+use App\Entity\ShopCart;
+
 
 use App\Form\UserType;
 use App\Form\CommentsType;
@@ -30,6 +32,7 @@ class FrontController extends Controller
      */
     public function index(SettingRepository $settingRepository)
     {   
+
         $games = $this -> getDoctrine()->getRepository(Games::class)->findAll();  
         $sliders = $this -> getDoctrine()->getRepository(Sliders::class)->findAll(); 
         $data = $settingRepository->findAll();
@@ -37,11 +40,17 @@ class FrontController extends Controller
         $cats = $this->categoryList();
         $cats[0] = '<ul id="menu-v">';
 
+        $usersession = $this->getUser();
+        $productCount = $this -> getDoctrine()->getRepository(ShopCart::class)->findBy(["userid" => $usersession->getid()]);
+
+
+
         return $this->render('default/index.html.twig', [
             'games' => $games,
             'sliders' => $sliders,
             'cats' => $cats,
             'data' => $data[0],
+            'productCount' => count($productCount),
         ]);
     }
 

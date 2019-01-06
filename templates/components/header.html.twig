@@ -26,7 +26,10 @@
       {% if is_granted('IS_AUTHENTICATED_FULLY') %}
         <a href="/sell-game">Oyun Sat</a>
         <a class="user" href="/userpanel">{{ app.user.email }}</a>
-        <a href="{{ path('logout') }}">Çikis</a>
+        <a href="/shopcart" class="sepet">
+          <i style="color:#fff" class="fa fa-shopping-cart"></i>
+          </a>
+        <a href="{{ path('logout') }}"><i class="fa fa-sign-out-alt"></i></a>
       {% else %}
         <a href="/register">Üye Ol</a>
         <a href="/login">Giriş Yap</a>
