@@ -87,7 +87,7 @@
       <h3>Üye Yorumları</h3>
 
       {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-       <form class="yorum-form" action=" {{ path('yorum-yap')}}" method="POST">
+       <form class="yorum-form" action="{{ path('yorum-yap')}}" method="POST">
           <textarea name="comments[comment]" id="comment" cols="30" rows="3" placeholder="Yorumunuz"></textarea>
          
           <input type="hidden" name="token" value="{{ csrf_token('comment-form') }}">

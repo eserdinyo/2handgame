@@ -27,15 +27,12 @@ class DetayController extends Controller
         $sales = $this -> getDoctrine()->getRepository(Sales::class)->findBy(array("oyunId"=> $id), array('price'=>'ASC'));
         $comments = $this -> getDoctrine()->getRepository(Comments::class)->findBy(array('status' => "true", 'oyun_id' => $id));
 
-        $usersession = $this->getUser();
-        $productCount = $this -> getDoctrine()->getRepository(ShopCart::class)->findBy(["userid" => $usersession->getid()]);
         
         return $this->render('game-detay.html.twig', [
             'game' => $game,
             'sales' => $sales,
             'images' => $images,
             'comments' => $comments,
-            'productCount' => count($productCount),
         ]);
     }
 }

@@ -40,8 +40,6 @@ class FrontController extends Controller
         $cats = $this->categoryList();
         $cats[0] = '<ul id="menu-v">';
 
-        $usersession = $this->getUser();
-        $productCount = $this -> getDoctrine()->getRepository(ShopCart::class)->findBy(["userid" => $usersession->getid()]);
 
 
 
@@ -50,7 +48,6 @@ class FrontController extends Controller
             'sliders' => $sliders,
             'cats' => $cats,
             'data' => $data[0],
-            'productCount' => count($productCount),
         ]);
     }
 
