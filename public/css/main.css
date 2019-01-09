@@ -19,7 +19,7 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 16px;
 }
 
@@ -28,7 +28,8 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 0 40px;
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../images/header.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("../images/header.jpg");
   background-size: cover;
 }
 
@@ -60,7 +61,7 @@ nav {
   border: 1px solid #fff;
   border-radius: 1px;
   cursor: pointer;
-  transition: all .2s;
+  transition: all 0.2s;
 }
 
 .user:hover {
@@ -74,8 +75,8 @@ nav {
   padding-bottom: 10px;
   border-width: 1px;
   border-style: solid;
-  border-color: rgba(255, 255, 255, 0);;
-  transition: all .2s;
+  border-color: rgba(255, 255, 255, 0);
+  transition: all 0.2s;
 }
 
 .product:hover {
@@ -146,7 +147,7 @@ nav {
   font-weight: 500;
   color: #e67e22;
   margin-bottom: 10px;
-  font-size: 20px
+  font-size: 20px;
 }
 
 .seller-rate {
@@ -183,11 +184,10 @@ nav {
 }
 
 .buy__btn {
-  background: #1B995F;
+  background: #1b995f;
   border-radius: 4px;
   padding: 10px 50px;
-  transition: all .2s;
-
+  transition: all 0.2s;
 }
 
 .buy__btn:hover {
@@ -220,7 +220,7 @@ nav {
   padding: 10px 20px 20px 20px;
   border-bottom: 1px solid #d8d8d8;
   cursor: pointer;
-  transition: all .1s;
+  transition: all 0.1s;
 }
 
 .bottom-seller:hover {
@@ -239,11 +239,10 @@ nav {
 }
 
 .other-buy-btn {
-  background: #1B995F;
+  background: #1b995f;
   padding: 10px 12px;
   border-radius: 5px;
   font-size: 15px;
-
 }
 
 .other-seller-rate {
@@ -291,7 +290,7 @@ nav {
   color: #fff;
   background: #c23516d7;
   font-weight: 500;
-  transition: all .2s;
+  transition: all 0.2s;
   cursor: pointer;
   font-size: 16px;
 }
@@ -311,7 +310,6 @@ nav {
   border-bottom: 1px solid #eee;
 }
 
-
 .form-group-sehir label {
   margin-right: 50px;
 }
@@ -329,7 +327,8 @@ nav {
 }
 
 .form {
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../images/login.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("../images/login.jpg");
   background-size: cover;
   height: 100vh;
 }
@@ -348,7 +347,8 @@ nav {
 .sell-game {
   margin: 20px auto 0 auto;
   padding: 10px 40px;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), url("../images/sell-game.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)),
+    url("../images/sell-game.jpg");
   background-size: cover;
   width: 50%;
   border-radius: 5px;
@@ -398,7 +398,7 @@ textarea {
   margin-left: auto;
   margin-right: 10px;
   cursor: pointer;
-  transition: .1s;
+  transition: 0.1s;
 }
 
 .sell-game__btn:hover {
@@ -406,7 +406,7 @@ textarea {
 }
 
 .buy-btn {
-  background: #1B995F;
+  background: #1b995f;
   padding: 10px 20px;
   margin-top: 50px;
   text-transform: uppercase;
@@ -424,17 +424,15 @@ textarea {
   border-radius: 5px;
   width: 200px;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.411);
-
 }
 
 .sidebar-content li {
   margin-top: 10px;
-  transition: all .2s;
-
+  transition: all 0.2s;
 }
 
 .sidebar-content li a {
-  transition: all .2s;
+  transition: all 0.2s;
 }
 
 .sidebar-content li:hover {
@@ -445,8 +443,8 @@ textarea {
 .btn-onay {
   position: absolute;
   right: 100px;
-    transform: translateY(100%);
-    bottom: 0;
+  transform: translateY(100%);
+  bottom: 0;
 }
 
 /* YORUM */
@@ -457,7 +455,7 @@ textarea {
 
 .yorum-form textarea {
   width: 500px;
-  background: #F2F2F2;
+  background: #f2f2f2;
   border: none;
 }
 
@@ -468,7 +466,7 @@ textarea {
 .btn-yorum {
   width: 100px;
   margin-top: 10px;
-  background: #1B995F;
+  background: #1b995f;
   color: #fff;
   border: 1px solid #fff;
   border-radius: 3px;
@@ -498,7 +496,6 @@ textarea {
 
 .comment__detay {
   font-size: 14px;
-
 }
 
 .dedi {
@@ -508,7 +505,6 @@ textarea {
 .sepet {
   margin-right: 10px;
   position: relative;
-  
 }
 
 .sepet__number {
@@ -526,5 +522,4 @@ textarea {
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
